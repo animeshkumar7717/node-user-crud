@@ -2,23 +2,6 @@ const { v4: uuidv4 } = require('uuid');
 
 const User = require('../model/user.model');
 
-
-// const getAllUser = async(req,res) => {
-//   try {
-//       const user = await User.find();
-//       res.status(200).json({
-//           success: true,
-//           data: user
-//       })
-//   } catch (error) {
-//       console.log(error);
-//       res.status(500).json({
-//           success: false,
-//           message: 'Failed to fetch the user'
-//       })      
-//   }
-// }
-
 const getAllUser = async (req, res) => {
   try {
     const { name, sortBy, order, page, limit } = req.query;
@@ -75,22 +58,6 @@ const createUser = async(req,res) => {
   }
 }
 
-const getUserByName = async (req, res, next) => {
-  try {
-    const { name } = req.params;
-    const user = await User.findOne({ name });
-
-    if (!user) {
-      return res.status(404).json({ success: false, message: 'User not found' });
-    }
-
-    res.status(200).json({ success: true, data: user, message: 'User found' });
-  } catch (error) {
-    console.log(error);
-    res.status(500).json({ success: false, message: 'Failed to fetch user' });
-  }
-}
-
 const updateUser = async (req, res, next) => {
   try {
     const { id } = req.params;
@@ -135,7 +102,6 @@ const deleteUser = async (req, res, next) => {
 module.exports = {
     getAllUser,
     createUser,
-    getUserByName,
     updateUser,
     deleteUser
 }
