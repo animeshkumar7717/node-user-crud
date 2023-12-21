@@ -1,6 +1,6 @@
 const express = require('express');
-const Connection = require('./src/libs/book.libs');
-const bookRouter = require('./src/route/book.route');
+const Connection = require('./src/libs/user.libs');
+const userRouter = require('./src/route/user.route');
 
 
 const app = express();
@@ -11,7 +11,7 @@ app.get('/', (req,res) => {
     res.send('App is running...')
 })
 
-app.use('/book', bookRouter)
+app.use('/user', userRouter)
 
 const PORT = 8090;
 
