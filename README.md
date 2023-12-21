@@ -1,5 +1,5 @@
 # get
-    url: http://localhost:8090/user
+    url : http://localhost:8090/user
     curl --location --request GET 'http://localhost:8090/user' \
 # post
     url: http://localhost:8090/user
